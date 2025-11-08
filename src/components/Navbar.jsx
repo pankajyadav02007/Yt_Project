@@ -4,7 +4,7 @@ import { Link } from "react-router";
 const Navbar = () => {
   return (
     <header className="h-16 flex justify-between gap-2 items-center bg-neutral-800 text-neutral-50 px-5">
-      <h2>MyTUBE</h2>
+      <Link to={"/"}>MyTUBE</Link>
       <div className="flex gap-2 items-center">
         <input
           placeholder="Search Video Here.."
@@ -19,6 +19,7 @@ const Navbar = () => {
 
       <nav>
         <Link to={"/login"}>Login</Link>
+        <Link to={"/signup"}>Signup</Link>
       </nav>
     </header>
   );
