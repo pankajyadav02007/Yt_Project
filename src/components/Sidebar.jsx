@@ -1,43 +1,42 @@
 import React from "react";
 import { BiHome } from "react-icons/bi";
-import { FaSubscript } from "react-icons/fa6";
-import { GiShorts } from "react-icons/gi";
-import { SiShortcut } from "react-icons/si";
+import { MdSubscriptions } from "react-icons/md";
+import { SiYoutubeshorts } from "react-icons/si";
 import { NavLink } from "react-router";
 
 const Sidebar = () => {
   return (
-    <div className="h-[100vh] w-[40%] bg-black text-white">
+    <div className="h-\[100vh\] w-[40%] bg-[rgb(15,15,15)] text-white">
       <ul>
         <li>
           <NavLink
             to="#"
-            className="flex gap-3 p-2 m-2 bg-gray-800 hover:bg-red-900"
+            className="flex items-center gap-3 p-2 m-2 rounded bg-[rgb(39,39,39)] hover:bg-[rgb(39,39,39)]"
           >
-            <BiHome className="size-7" />
+            <BiHome className="size-6" />
             <span>Home</span>
           </NavLink>
         </li>
         <li>
           <NavLink
             to="#"
-            className="flex gap-3 p-2 m-2 bg-gray-800 hover:bg-red-900"
+            className="flex items-center gap-3 p-2 m-2 rounded  hover:bg-[rgb(39,39,39)]"
           >
-            <SiShortcut className="size-5" />
+            <SiYoutubeshorts className="size-6" />
             <span>Shorts</span>
           </NavLink>
         </li>
         <li>
           <NavLink
             to="#"
-            className="flex gap-3 p-2 m-2 bg-gray-800 hover:bg-red-900"
+            className="flex items-center gap-3 p-2 m-2 rounded  hover:bg-[rgb(39,39,39)] "
           >
-            <FaSubscript className="size-7" />
-            <span>Subscribe</span>
+            <MdSubscriptions className="size-6" />
+            <span>Subscriptions</span>
           </NavLink>
         </li>
       </ul>
-      <hr />
+      <hr className=" border-[rgb(39,39,39)]" />
     </div>
   );
 };
