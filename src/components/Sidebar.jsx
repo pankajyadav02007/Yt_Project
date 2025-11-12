@@ -36,7 +36,7 @@ const Sidebar = () => {
           </NavLink>
         </li>
       </ul>
-      <hr className=" border-[rgb(39,39,39)]" />
+      <hr className="border-[rgb(39,39,39)]" />
     </div>
   );
 };
