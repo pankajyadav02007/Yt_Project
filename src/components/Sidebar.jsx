@@ -1,44 +1,51 @@
 import React from "react";
-import { BiHome } from "react-icons/bi";
+import { AiFillHome } from "react-icons/ai";
 import { MdSubscriptions } from "react-icons/md";
 import { SiYoutubeshorts } from "react-icons/si";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
-const Sidebar = () => {
+function Sidebar() {
   return (
-    <div className="h-\[100vh\] w-[40%] bg-[rgb(15,15,15)] text-white">
+    <aside className="w-[200px] px-2 h-full overflow-y-auto bg-neutral-950">
       <ul>
         <li>
           <NavLink
-            to="#"
-            className="flex items-center gap-3 p-2 m-2 rounded bg-[rgb(39,39,39)] hover:bg-[rgb(39,39,39)]"
+            to="/"
+            className={({ isActive }) =>
+              isActive
+                ? "transition-all duration-700 bg-neutral-200/10 flex gap-2 items-center p-2 text-sm"
+                : "transition-all duration-700 bg-transparent flex gap-2 items-center p-2 text-sm"
+            }
           >
-            <BiHome className="size-6" />
+            <AiFillHome size={20} />
             <span>Home</span>
           </NavLink>
-        </li>
-        <li>
           <NavLink
-            to="#"
-            className="flex items-center gap-3 p-2 m-2 rounded  hover:bg-[rgb(39,39,39)]"
+            to="/shorts"
+            className={({ isActive }) =>
+              isActive
+                ? "transition-all duration-700 bg-neutral-200/10 flex gap-2 items-center p-2 text-sm"
+                : "transition-all duration-700 bg-transparent flex gap-2 items-center p-2 text-sm"
+            }
           >
-            <SiYoutubeshorts className="size-6" />
+            <SiYoutubeshorts size={20} />
+
             <span>Shorts</span>
           </NavLink>
-        </li>
-        <li>
           <NavLink
-            to="#"
-            className="flex items-center gap-3 p-2 m-2 rounded  hover:bg-[rgb(39,39,39)] "
+            to="/subcriptions"
+            className={({ isActive }) =>
+              isActive
+                ? "transition-all duration-700 bg-neutral-200/10 flex gap-2 items-center p-2 text-sm border-b border-b-neutral-200/20"
+                : "transition-all duration-700 bg-transparent flex gap-2 items-center p-2 text-sm border-b border-b-neutral-200/20"
+            }
           >
-            <MdSubscriptions className="size-6" />
-            <span>Subscriptions</span>
+            <MdSubscriptions size={20} />
+            <span>Subscription</span>
           </NavLink>
         </li>
       </ul>
-      <hr className="border-[rgb(39,39,39)]" />
-    </div>
+    </aside>
   );
-};
-
+}
 export default Sidebar;

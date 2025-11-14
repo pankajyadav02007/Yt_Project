@@ -1,25 +1,62 @@
 import { Route, Routes } from "react-router";
-import Signup from "./pages/Signup";
-// import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
-import LoginPage from "./pages/Login";
 import Sidebar from "./components/Sidebar";
-import Hero from "./components/Hero";
+import VideoDetails from "./pages/VideoDetails";
+import SearchResults from "./pages/SearchResults";
+import ErrorPage from "./ErrorPage";
+import { useState } from "react";
+import HomePage from "./pages/Home";
 
 function App() {
+  const [isSiderbarOpen, setIsSiderbarOpen] = useState(true);
+
+  function toggleSidebar() {
+    setIsSiderbarOpen(!isSiderbarOpen);
+  }
+
+  useState(() => {
+    function handleSiderbar() {
+      if (window.innerWidth < 768) {
+        setIsSiderbarOpen(false);
+      } else {
+        setIsSiderbarOpen(true);
+      }
+    }
+
+    if (window !== undefined) {
+      handleSiderbar();
+    }
+    window.addEventListener("resize", handleSiderbar);
+  }, []);
+
   return (
-    <>
-      <Navbar />
-      <div className="flex gap-2">
-        <Sidebar />
-        <Hero />
-      </div>
-      <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<Signup />} />
-      </Routes>
-    </>
+    <div>
+      <Navbar onMenuBtnClick={toggleSidebar} isSiderbarOpen={isSiderbarOpen} />
+      <main className="flex mt-16">
+        <div
+          className={`transition-all duration-1000 fixed top-16 bottom-0 left-0 ${
+            isSiderbarOpen
+              ? "min-w-[220px] overflow-auto"
+              : "w-0 overflow-hidden"
+          }`}
+        >
+          <Sidebar />
+        </div>
+        <section
+          className={`transition-all duration-1000 min-h-screen w-full  ${
+            isSiderbarOpen ? "ml-[220px]" : "ml-0"
+          }`}
+        >
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/videos/:vid" element={<VideoDetails />} />
+            <Route path="/results" element={<SearchResults />} />
+
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </section>
+      </main>
+    </div>
   );
 }
 

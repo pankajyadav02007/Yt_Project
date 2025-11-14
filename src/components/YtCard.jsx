@@ -1,30 +1,34 @@
+import React from "react";
+import { Link } from "react-router";
+
 function YtCard(props) {
-  console.log(props);
+  console.log(props.videoDetails.id);
 
   return (
     <figure>
-      <img
-        src="https://i.ytimg.com/vi/F2aJfxROY9Y/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLChHK9OFzi1Gj5qhEPMzHWBThFGbg"
-        alt=""
-        className="w-full rounded-2xl"
-      />
-      <figcaption className="flex gap-1 mt-2">
+      <Link to={`/videos/${props.videoDetails.id}`}>
         <img
-          src="https://yt3.ggpht.com/ax2e39eoHTJABdcUjDN-yzmXuBZDGbMJ-00C9k7e7UdCDwxiCsu610T9TjpvREjujRPCb7ib9c8=s68-c-k-c0x00ffffff-no-rj"
+          src={props.videoDetails.thumbnail}
           alt=""
-          className="h-12 w-12 rounded-full"
+          className="w-full rounded-lg"
         />
-        <div>
-          <h3 className="text-md font-medium">
-            Let's build an AI Automation SaaS with Next JS | Neon | Inngest |
-            Better Auth | Cryptomus (Part 1/2)
-          </h3>
-          <p className="text-sm">
-            {props.fName} {props.lName}
-          </p>
-          <p className="text-sm">2.8K views &bull; 12 hours ago</p>
-        </div>
-      </figcaption>
+        <figcaption className="flex gap-2 pt-2 px-2">
+          <img
+            src={props.videoDetails.chanelLogo}
+            alt=""
+            className="rounded-full h-10 w-10"
+          />
+          <div>
+            <h3 className="text-sm font-semibold line-clamp-2">
+              {props.videoDetails.title}
+            </h3>
+            <p className="text-xs">{props.videoDetails.chanelName}</p>
+            <p className="text-xs">
+              {props.videoDetails.views} views {props.videoDetails.uploadedTime}
+            </p>
+          </div>
+        </figcaption>
+      </Link>
     </figure>
   );
 }
