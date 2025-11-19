@@ -14,7 +14,7 @@ function YtCard(props) {
         />
         <figcaption className="flex gap-2 pt-2 px-2">
           <img
-            src={props.videoDetails.chanelLogo}
+            src={props.videoDetails.channelLogo}
             alt=""
             className="rounded-full h-10 w-10"
           />
