@@ -1,6 +1,6 @@
 import React from "react";
-import YtShortVideoCard from "../components/YtShortVideoCard";
 import YtCard from "../components/YtCard";
+import YtShortVideoCard from "../components/YtShortVideoCard";
 
 function HomePage() {
   const videos = [
@@ -11,9 +11,9 @@ function HomePage() {
       channelLogo:
         "https://yt3.ggpht.com/jGUHpFjmumhIa2ZFuB-f2TrDrvoxj_R_eucLTjg4Eqj-wa4KCU1vEsUEmTgJe-Nd-iduVwHgXMI=s68-c-k-c0x00ffffff-no-rj",
       title: "5 secrets that OLD MONEY doesn’t want you to know",
-      views: "4.3k",
+      views: "4.3K",
       uploadedTime: "20 hours ago",
-      channelName: "Radhika Chopra",
+      chanelName: "Radhika Chopra",
     },
     {
       id: "bQNT4L9uGaU",
@@ -25,7 +25,7 @@ function HomePage() {
         "I Open-Sourced My Failed Chrome Extension… But Did Not Expect This",
       views: "39K",
       uploadedTime: "3 days ago",
-      channelName: "Anna Codes",
+      chanelName: "Anna Codes",
     },
     {
       id: "_CWcBWSKItk",
@@ -34,9 +34,9 @@ function HomePage() {
       channelLogo:
         "https://yt3.ggpht.com/jGUHpFjmumhIa2ZFuB-f2TrDrvoxj_R_eucLTjg4Eqj-wa4KCU1vEsUEmTgJe-Nd-iduVwHgXMI=s68-c-k-c0x00ffffff-no-rj",
       title: "5 secrets that OLD MONEY doesn’t want you to know",
-      views: "3.3K",
+      views: "4.3K",
       uploadedTime: "20 hours ago",
-      channelName: "study plan",
+      chanelName: "Radhika Chopra",
     },
     {
       id: "6xk1g20qdVw",
@@ -46,9 +46,9 @@ function HomePage() {
         "https://yt3.ggpht.com/AclQ892JKT07_-02ZRSJQIKWtG7deb9eyMmd8_sQNyb-zGcG7gxthnzOIepf7jnTLhreWAdm=s68-c-k-c0x00ffffff-no-rj",
       title:
         "I Open-Sourced My Failed Chrome Extension… But Did Not Expect This",
-      views: "40K",
-      uploadedTime: "18 hours ago",
-      channelName: "Himanshu Bloger",
+      views: "39K",
+      uploadedTime: "3 days ago",
+      chanelName: "Anna Codes",
     },
     {
       id: "C7RBGKwEWhc",
@@ -56,38 +56,40 @@ function HomePage() {
         "https://i.ytimg.com/vi/k-ZHBv1Db6M/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAc2daDONLR0tpSWO41AgpGDzmZMg",
       channelLogo:
         "https://yt3.ggpht.com/jGUHpFjmumhIa2ZFuB-f2TrDrvoxj_R_eucLTjg4Eqj-wa4KCU1vEsUEmTgJe-Nd-iduVwHgXMI=s68-c-k-c0x00ffffff-no-rj",
-      title: "5 secrets that OLD MONEY doesn’t want you to know5K",
-      views: "",
-      uploadedTime: "5 hours ago",
-      channelName: "Tech",
+      title: "5 secrets that OLD MONEY doesn’t want you to know",
+      views: "4.3K",
+      uploadedTime: "20 hours ago",
+      chanelName: "Radhika Chopra",
     },
   ];
 
   const tabs = [
     "All",
-    "Sports",
-    "Gaming",
-    "Songs",
-    "Live",
+    "Programming",
+    "System Design",
+    "CSE",
+    "Coding",
+    "Music",
     "Dance",
-    "Videos",
-    "movie",
+    "Gaming",
     "Comedy",
-    "Eduction",
+    "Movie",
+    "Sports",
+    "Eductaion",
     "News",
     "Life Style",
-    "Wedding",
     "Vlog",
-    "System Design",
-    "Programming",
-    "Computer",
+    "Wedding",
   ];
 
   return (
     <>
       <section className="flex overflow-hidden gap-1.5 px-3 py-3 fixed w-full bg-neutral-950">
-        {tabs.map((tab) => (
-          <button className="text-sm  bg-neutral-700 px-3 py-1 rounded-md text-nowrap">
+        {tabs.map((tab, index) => (
+          <button
+            key={index}
+            className="text-sm bg-neutral-700 px-3 py-1 rounded-md text-nowrap"
+          >
             {tab}
           </button>
         ))}
@@ -95,24 +97,25 @@ function HomePage() {
       <section className="p-3 mt-11">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 pb-3">
           {videos.map((video) => (
-            <YtCard videoDetails={video} />
+            <YtCard videoDetails={video} key={video.id} />
           ))}
         </div>
-        <section className="border-t border-t-nautral-100/10 pb-3">
+
+        <section className="border-t border-t-neutral-100/10 pb-3">
           <h3 className="text-lg font-semibold my-3">Shorts</h3>
           <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mt-3">
             {videos.map((video) => (
-              <YtShortVideoCard videoDetails={video} />
+              <YtShortVideoCard videoDetails={video} key={video.id} />
             ))}
           </section>
         </section>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 py-6 border-t border-t-neutral-100/10">
           {videos.map((video) => (
-            <YtCard videoDetails={video} />
+            <YtCard videoDetails={video} key={video.id} />
           ))}
         </div>
       </section>
-      ;
     </>
   );
 }
